@@ -1,0 +1,37 @@
+//Aadarsh Nayyer   21070126002 AIML-A1
+//Printing the directed and undirected adjacent graph matrix
+#include <stdio.h>
+#define V 5
+void init(int arr[][V]) {
+int i, j;
+for (i = 0; i < V; i++)
+for (j = 0; j < V; j++)
+arr[i][j] = 0;
+}
+void addEdge(int arr[][V], int i, int j) {
+arr[i][j] = 1;
+arr[j][i] = 0; //for undirected put this equal to 1
+}
+void printAdjMatrix(int arr[][V]) {
+int i, j;
+for (i = 0; i < V; i++) {
+for (j = 0; j < V; j++) {
+printf("%d ", arr[i][j]);
+}
+printf("\n");
+}
+}
+int main() {
+int adjMatrix[V][V];
+init(adjMatrix);
+addEdge(adjMatrix, 0, 1);
+addEdge(adjMatrix, 0, 2);
+addEdge(adjMatrix, 1, 3);
+addEdge(adjMatrix, 2, 1);
+addEdge(adjMatrix, 2, 5);
+addEdge(adjMatrix, 3, 3);
+addEdge(adjMatrix, 4, 2);
+addEdge(adjMatrix, 4, 3);
+printAdjMatrix(adjMatrix);
+return 0;
+}
